@@ -76,6 +76,3 @@ document.getElementById("passwordInput").addEventListener("keypress", function (
     origin: { y: 0.6 }
   });
 }
-
-  }
-});
