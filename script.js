@@ -56,6 +56,44 @@ document.getElementById("submitBtn").addEventListener("click", showClue);
 // Optional: Allow Enter key to submit
 document.getElementById("passwordInput").addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
+    showClue();
+  }
+});
+
+let currentClue = 0;
+
+function showClue() {
+  const clueContainer = document.getElementById("clueContainer");
+  const passwordInput = document.getElementById("passwordInput");
+  const password = passwordInput.value.trim().toLowerCase();
+
+  if (password === clues[currentClue].password) {
+    currentClue++;
+    passwordInput.value = "";
+
+    if (currentClue < clues.length) {
+      clueContainer.innerHTML = `
+        <h2>Clue ${currentClue + 1}</h2>
+        <img src="${clues[currentClue].image}" alt="Clue ${currentClue + 1}" />
+      `;
+    } else {
+      // Final clue reached!
+      clueContainer.innerHTML = `
+        <h2>🎉 You found your Easter basket! 🎉</h2>
+        <img src="images/easter-bunny.gif" alt="Easter Bunny" style="width: 200px; margin: 20px auto; display: block; animation: bounce 1.5s infinite;" />
+        <img src="${clues[clues.length - 1].image}" alt="Final Clue" style="max-width: 100%; margin-top: 10px;" />
+      `;
+    }
+  } else {
+    alert("Hmm… that password doesn’t match this egg. Try again! 🧐");
+  }
+}
+
+document.getElementById("submitBtn").addEventListener("click", showClue);
+
+// Optional: Allow Enter key to submit
+document.getElementById("passwordInput").addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
     showClue(if (currentClue < clues.length) {
   clueContainer.innerHTML = `
     <h2>Clue ${currentClue + 1}</h2>
