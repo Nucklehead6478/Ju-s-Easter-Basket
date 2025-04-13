@@ -1,41 +1,79 @@
-
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fff0f5;
+  background-color: #ffeef5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #c2185b;
   text-align: center;
-  padding: 20px;
-  color: #444;
+  padding: 40px 20px;
 }
-.container {
-  max-width: 600px;
-  margin: auto;
-}
+
 h1 {
-  color: #d63384;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
 }
+
+h2 {
+  font-size: 1.8rem;
+  margin-top: 20px;
+}
+
 input {
   padding: 10px;
-  margin: 10px;
-  width: 60%;
-  border: 2px solid #d63384;
+  font-size: 1rem;
   border-radius: 8px;
+  border: 2px solid #f06292;
+  width: 80%;
+  max-width: 400px;
+  margin-top: 20px;
 }
-button {
-  padding: 10px 20px;
-  background-color: #d63384;
+
+button, #submitBtn {
+  background-color: #ec407a;
   color: white;
+  padding: 10px 20px;
   border: none;
   border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
+  margin-left: 10px;
+  margin-top: 10px;
 }
-button:hover {
-  background-color: #c2185b;
+
+button:hover, #submitBtn:hover {
+  background-color: #d81b60;
 }
+
 img {
   max-width: 100%;
+  height: auto;
   margin-top: 20px;
   border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-.image-section {
-  margin-top: 30px;
+
+/* Bunny bounce animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.bouncing-bunny {
+  width: 200px;
+  margin: 20px auto;
+  display: block;
+  animation: bounce 1.5s infinite;
+}
+
+/* Confetti canvas */
+#confettiCanvas {
+  position: fixed;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
 }
