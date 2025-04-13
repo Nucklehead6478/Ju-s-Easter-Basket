@@ -56,6 +56,26 @@ document.getElementById("submitBtn").addEventListener("click", showClue);
 // Optional: Allow Enter key to submit
 document.getElementById("passwordInput").addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
-    showClue();
+    showClue();if (currentClue < clues.length) {
+  clueContainer.innerHTML = `
+    <h2>Clue ${currentClue + 1}</h2>
+    <img src="${clues[currentClue].image}" alt="Clue ${currentClue + 1}" />
+  `;
+} else {
+  // Final clue reached!
+  clueContainer.innerHTML = `
+    <h2>🎉 You found your Easter basket! 🎉</h2>
+    <img src="images/easter-bunny.gif" alt="Easter Bunny" class="bouncing-bunny" />
+    <img src="${clues[clues.length - 1].image}" alt="Final Clue" style="max-width: 100%; margin-top: 10px;" />
+  `;
+
+  // 🎊 Launch confetti!
+  confetti({
+    particleCount: 200,
+    spread: 100,
+    origin: { y: 0.6 }
+  });
+}
+
   }
 });
