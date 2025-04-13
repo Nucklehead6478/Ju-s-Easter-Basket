@@ -1,15 +1,15 @@
 const clues = [
   { password: "bunny", image: "images/image1.jpg" },
   { password: "chocolate", image: "images/image2.jpg" },
-  { password: "jellybean", image: "images/image3.jpg" },
+  { password: "colorful", image: "images/image3.jpg" },
   { password: "carrot", image: "images/image4.jpg" },
   { password: "tulip", image: "images/image5.jpg" },
   { password: "peeps", image: "images/image6.jpg" },
   { password: "basket", image: "images/image7.jpg" },
   { password: "daffodil", image: "images/image8.jpg" },
-  { password: "marshmallow", image: "images/image9.jpg" },
+  { password: "love", image: "images/image9.jpg" },
   { password: "egg", image: "images/image10.jpg" },
-  { password: "bonnet", image: "images/image11.jpg" },
+  { password: "hunt", image: "images/image11.jpg" },
   { password: "chick", image: "images/image12.jpg" },
   { password: "spring", image: "images/image13.jpg" },
   { password: "candy", image: "images/image14.jpg" },
@@ -17,7 +17,7 @@ const clues = [
   { password: "hunt", image: "images/image16.jpg" },
   { password: "treats", image: "images/image17.jpg" },
   { password: "flower", image: "images/image18.jpg" },
-  { password: "grass", image: "images/image19.jpg" },
+  { password: "stinky", image: "images/image19.jpg" },
   { password: "sunshine", image: "images/image20.jpg" },
   { password: "surprise", image: "images/image21.jpg" }
 ];
