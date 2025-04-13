@@ -56,7 +56,7 @@ document.getElementById("submitBtn").addEventListener("click", showClue);
 // Optional: Allow Enter key to submit
 document.getElementById("passwordInput").addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
-    showClue();if (currentClue < clues.length) {
+    showClue(if (currentClue < clues.length) {
   clueContainer.innerHTML = `
     <h2>Clue ${currentClue + 1}</h2>
     <img src="${clues[currentClue].image}" alt="Clue ${currentClue + 1}" />
