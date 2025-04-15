@@ -3,19 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Easter Egg Hunt</title>
+  <title>Ju's Easter Basket Hunt</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🌸 Easter Egg Hunt 🌸</h1>
-  <p>Enter the word from the egg to unlock your next clue!</p>
-  <input type="text" id="passwordInput" placeholder="Enter code for Egg #..." />
-  <button id="submitBtn">Submit</button>
+  <div class="container">
+    <h1>🔍 Ju's Easter Basket Hunt</h1>
+    <p>Enter the password hidden with each egg to find the next clue!</p>
+    <input type="text" id="passwordInput" placeholder="Enter egg password..." />
+    <button id="submitBtn">Submit</button>
+    <div id="clueContainer">
+      <h2>Clue 1</h2>
+      <img src="images/image1.jpg" alt="Clue 1" />
+    </div>
+    <canvas id="confetti-canvas"></canvas>
+  </div>
 
-  <div id="clueContainer"></div>
-
-  <canvas id="confettiCanvas"></canvas>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
