@@ -29,25 +29,20 @@ function showClue() {
   const passwordInput = document.getElementById("passwordInput");
   const password = passwordInput.value.trim().toLowerCase();
 
+  // Check if the entered password matches the current clue's password.
   if (password === clues[currentClue].password) {
+    // Increment the clue index. For the first clue (index 0), this moves us to clue 2.
     currentClue++;
     passwordInput.value = "";
 
     if (currentClue < clues.length) {
-      if (currentClue === 1) {
-        // After the first correct answer ("bunny"), show only the header for Clue 2.
-        clueContainer.innerHTML = `<h2>Clue ${currentClue + 1}</h2>`;
-      } else {
-        // For Clue 3 and onward, display the header for the next clue
-        // along with the reward image from the previous clue.
-        clueContainer.innerHTML = `
-          <h2>Clue ${currentClue + 1}</h2>
-          <img src="${clues[currentClue - 1].image}" alt="Reward for Clue ${currentClue}" />
-        `;
-      }
+      // From here onward (starting with Clue 2), show the header and image.
+      clueContainer.innerHTML = `
+        <h2>Clue ${currentClue + 1}</h2>
+        <img src="${clues[currentClue].image}" alt="Clue ${currentClue + 1}" />
+      `;
     } else {
-      // When the final password ("surprise") is entered,
-      // show the final Easter basket reward.
+      // Once the final password is entered, show the Easter basket reward.
       clueContainer.innerHTML = `
         <h2>🎉 You found your Easter basket! 🎉</h2>
         <img src="images/easter-bunny.gif" alt="Easter Bunny" style="width: 200px; margin: 10px 0;" />
