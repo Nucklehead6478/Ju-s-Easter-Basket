@@ -34,7 +34,7 @@ function showClue() {
     passwordInput.value = "";
 
     if (currentClue < clues.length) {
-      clueContainer.innerHTML = \`
+      clueContainer.innerHTML = `
         <h2>Clue \${currentClue + 1}</h2>
         <img src="\${clues[currentClue].image}" alt="Clue \${currentClue + 1}" />
       \`;
