@@ -29,20 +29,21 @@ function showClue() {
   const passwordInput = document.getElementById("passwordInput");
   const password = passwordInput.value.trim().toLowerCase();
 
-  // Check if the entered password matches the current clue's password.
   if (password === clues[currentClue].password) {
-    // Increment the clue index. For the first clue (index 0), this moves us to clue 2.
+    // Increase the clue index after the correct password is entered.
     currentClue++;
     passwordInput.value = "";
 
     if (currentClue < clues.length) {
-      // From here onward (starting with Clue 2), show the header and image.
+      // Display the next clue header.
+      // For every clue starting with Clue 2 (i.e. currentClue === 1),
+      // display the reward image from the previous clue.
       clueContainer.innerHTML = `
         <h2>Clue ${currentClue + 1}</h2>
-        <img src="${clues[currentClue].image}" alt="Clue ${currentClue + 1}" />
+        <img src="${clues[currentClue - 1].image}" alt="Reward for Clue ${currentClue}" />
       `;
     } else {
-      // Once the final password is entered, show the Easter basket reward.
+      // When the final clue is solved, show the final reward.
       clueContainer.innerHTML = `
         <h2>🎉 You found your Easter basket! 🎉</h2>
         <img src="images/easter-bunny.gif" alt="Easter Bunny" style="width: 200px; margin: 10px 0;" />
@@ -51,7 +52,7 @@ function showClue() {
       confetti();
     }
   } else {
-    alert("Hmm… that password doesn’t match this egg. Try again silly Julie! 🧐");
+    alert("Hmm… that password doesn’t match this egg. Try again silly Julie!! 🧐");
   }
 }
 
