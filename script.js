@@ -39,12 +39,12 @@ function showClue() {
         <img src="\${clues[currentClue].image}" alt="Clue \${currentClue + 1}" />
       \`;
     } else {
-      clueContainer.innerHTML = `
-        <h2>🎉 You found your Easter basket! 🎉</h2>
-        <img src="images/easter-bunny.gif" alt="Easter Bunny" style="width: 200px; margin: 20px auto; display: block; animation: bounce 1.5s infinite;" />
-        <img src="\${clues[clues.length - 1].image}" alt="Final Clue" style="max-width: 100%; margin-top: 10px;" />
-      `;
-      confetti();
+clueContainer.innerHTML = `
+  <h2>🎉 You found your Easter basket! 🎉</h2>
+  <img src="images/easter-bunny.gif" alt="Easter Bunny" style="width: 200px; margin: 10px 0;" />
+  <img src="${clues[clues.length - 1].image}" alt="Final Clue" style="max-width: 100%;" />
+`;
+confetti();
     }
   } else {
     alert("Hmm… that password doesn’t match this egg. Try again! 🧐");
