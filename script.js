@@ -35,8 +35,8 @@ function showClue() {
 
     if (currentClue < clues.length) {
       clueContainer.innerHTML = `
-        <h2>Clue \${currentClue + 1}</h2>
-        <img src="\${clues[currentClue].image}" alt="Clue \${currentClue + 1}" />
+        <h2>Clue ${currentClue + 1}</h2>
+        <img src="${clues[currentClue].image}" alt="Clue ${currentClue + 1}" />
       `;
     } else {
 clueContainer.innerHTML = `
