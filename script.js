@@ -29,32 +29,35 @@ function showClue() {
   const passwordInput = document.getElementById("passwordInput");
   const password = passwordInput.value.trim().toLowerCase();
 
- if (password === clues[currentClue].password) {
-  currentClue++;
-  passwordInput.value = "";
+  if (password === clues[currentClue].password) {
+    currentClue++;
+    passwordInput.value = "";
 
-  if (currentClue < clues.length) {
-    // If we're at clue 2 (i.e. after "bunny"), show only text.
-    // Otherwise, show both the clue text and its image.
-    if (currentClue === 1) {
-      clueContainer.innerHTML = `<h2>Clue ${currentClue + 1}</h2>`;
+    if (currentClue < clues.length) {
+      if (currentClue === 1) {
+        // After the first correct answer ("bunny"), show only the header for Clue 2.
+        clueContainer.innerHTML = `<h2>Clue ${currentClue + 1}</h2>`;
+      } else {
+        // For Clue 3 and onward, display the header for the next clue
+        // along with the reward image from the previous clue.
+        clueContainer.innerHTML = `
+          <h2>Clue ${currentClue + 1}</h2>
+          <img src="${clues[currentClue - 1].image}" alt="Reward for Clue ${currentClue}" />
+        `;
+      }
     } else {
+      // When the final password ("surprise") is entered,
+      // show the final Easter basket reward.
       clueContainer.innerHTML = `
-        <h2>Clue ${currentClue + 1}</h2>
-        <img src="${clues[currentClue].image}" alt="Clue ${currentClue + 1}" />
+        <h2>🎉 You found your Easter basket! 🎉</h2>
+        <img src="images/easter-bunny.gif" alt="Easter Bunny" style="width: 200px; margin: 10px 0;" />
+        <img src="${clues[clues.length - 1].image}" alt="Final Clue" style="max-width: 100%;" />
       `;
+      confetti();
     }
   } else {
-    clueContainer.innerHTML = `
-      <h2>🎉 You found your Easter basket! 🎉</h2>
-      <img src="images/easter-bunny.gif" alt="Easter Bunny" style="width: 200px; margin: 10px 0;" />
-      <img src="${clues[clues.length - 1].image}" alt="Final Clue" style="max-width: 100%;" />
-    `;
-    confetti();
+    alert("Hmm… that password doesn’t match this egg. Try again silly Julie! 🧐");
   }
-} else {
-  alert("Hmm… that password doesn’t match this egg. Try again silly Julbie! 🧐");
-}
 }
 
 document.getElementById("submitBtn").addEventListener("click", showClue);
