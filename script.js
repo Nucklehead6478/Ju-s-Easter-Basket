@@ -24,26 +24,26 @@ const clues = [
 
 let currentClue = 0;
 
+// Initialize the clue container without showing an image
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("clueContainer").innerHTML = `<h2>Clue 1</h2>`;
+});
+
 function showClue() {
   const clueContainer = document.getElementById("clueContainer");
   const passwordInput = document.getElementById("passwordInput");
   const password = passwordInput.value.trim().toLowerCase();
 
   if (password === clues[currentClue].password) {
-    // Increase the clue index after the correct password is entered.
     currentClue++;
     passwordInput.value = "";
 
     if (currentClue < clues.length) {
-      // Display the next clue header.
-      // For every clue starting with Clue 2 (i.e. currentClue === 1),
-      // display the reward image from the previous clue.
       clueContainer.innerHTML = `
         <h2>Clue ${currentClue + 1}</h2>
         <img src="${clues[currentClue - 1].image}" alt="Reward for Clue ${currentClue}" />
       `;
     } else {
-      // When the final clue is solved, show the final reward.
       clueContainer.innerHTML = `
         <h2>🎉 You found your Easter basket! 🎉</h2>
         <img src="images/easter-bunny.gif" alt="Easter Bunny" style="width: 200px; margin: 10px 0;" />
@@ -62,3 +62,4 @@ document.getElementById("passwordInput").addEventListener("keypress", function (
     showClue();
   }
 });
+
